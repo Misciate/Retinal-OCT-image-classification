@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retinal OCT Image Classification</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Correct path for Flask static folder -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Retinal OCT Image Classification</h1>
+        <p>Upload an image to classify it using the model.</p>
+
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+        <div id="imagePreview" class="image-preview">
+            <img id="preview" src="" alt="Image Preview" style="display: none; max-width: 30%; height: auto;">
+        </div>
+        <button onclick="predictImage()">Predict</button>
+
+        <div id="result" class="result">
+            <h3>Result:</h3>
+            <p id="predictionText">No prediction yet.</p>
+        </div>
+    </div>
+    <script src="/script.js"></script> <!-- Correct path for Flask static folder -->
+</body>
+
+</html>
