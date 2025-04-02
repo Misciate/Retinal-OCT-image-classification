@@ -9,7 +9,8 @@ const class_names = {
     7: "NORMAL",
 };
 
-let croppedImageData = null; // Lưu ảnh crop để predict
+let croppedImageData = null; // Lưu ảnh crop để predict 
+// new change
 let isCropping = false;
 let startX, startY, endX, endY;
 
