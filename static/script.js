@@ -11,6 +11,7 @@ const class_names = {
 
 let croppedImageData = null; // Lưu ảnh crop để predict 
 // new change
+// let croppedImageData = "https://example.com/image.png"; // Đường dẫn ảnh mẫu (nếu cần)
 let isCropping = false;
 let startX, startY, endX, endY;
 
