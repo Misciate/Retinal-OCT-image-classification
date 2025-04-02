@@ -1,0 +1,147 @@
+/* Reset mặc định */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#toolbar {
+    margin-top: 10px;
+}
+
+#cropCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid transparent;
+    display: none;
+    pointer-events: auto;
+    /* Đảm bảo canvas nhận sự kiện chuột */
+}
+
+#toolbar button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#toolbar button:hover {
+    background-color: #0056b3;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eef4fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+    min-width: 320px;
+    text-align: center;
+}
+
+#preview {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.image-preview {
+    position: relative;
+    /* Giữ để cropCanvas hoạt động */
+    width: 300px;
+    height: 300px;
+    border: 2px dashed #ccc;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.image-preview:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    margin-top: auto;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}

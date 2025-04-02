@@ -1,0 +1,20 @@
+{
+  "name": "retinal-oct-image-classification",
+  "version": "1.0.0",
+  "description": "A website for retinal OCT image classification",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

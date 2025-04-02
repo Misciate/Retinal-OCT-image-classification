@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retinal OCT Image Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Correct path for Flask static folder -->
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Logo">
+        <h1>Retinal OCT Image Classification</h1>
+        <p>Bác sĩ: Lê Thái Minh Hiếu</p>
+    </header>
+
+    <main>
+        <div id="toolbar">
+            <button onclick="setupCropper()">✂️ Crop</button>
+            <button onclick="convertToGrayscale()">⚫ Trắng đen</button>
+        </div>
+
+        <div class="container">
+            <!-- Column 1: Image Selection and Preview -->
+            <div class="column">
+                <h3>Upload and Preview</h3>
+                <div id="imagePreview" class="image-preview" onpaste="handlePaste(event)">
+                    <img id="preview" style="max-width: 100%; height: auto;" />
+                </div>
+                <input type="file" id="imageInput" accept="image/*" onchange="displayImage(event)">
+                <button onclick="predictImage()">Predict</button>
+            </div>
+
+            <!-- Column 2: Prediction Results -->
+            <div class="column">
+                <h3>Prediction Results</h3>
+                <div id="result" class="result">
+                    <h4>Predicted Class:</h4>
+                    <p id="predictionText">No prediction yet.</p>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="cropCanvas" style="position: absolute; top: 0; left: 0; cursor: crosshair; display: none;"></canvas>
+    </main>
+    <footer>
+        <p>&copy; 2025 Retinal OCT Image Classification. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script> <!-- Correct path for Flask static folder -->
+</body>
+
+</html>
