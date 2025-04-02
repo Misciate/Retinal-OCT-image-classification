@@ -4,4 +4,4 @@ pillow
 numpy
 tensorflow==2.19.0
 gunicorn
-python-3.9.13
+
