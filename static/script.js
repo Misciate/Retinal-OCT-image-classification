@@ -155,8 +155,17 @@ function setupCropper() {
 
 
 // 👉 Chuyển ảnh sang grayscale
+let isGrayscale = false; // Trạng thái grayscale
+
 function convertToGrayscale() {
     let img = document.getElementById("preview");
+    let button = document.getElementById("grayscaleBtn");
+
+    if (!img || !img.src) {
+        console.error("Không có ảnh để chuyển đổi!");
+        return;
+    }
+
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
 
@@ -164,20 +173,29 @@ function convertToGrayscale() {
     canvas.height = img.height;
     ctx.drawImage(img, 0, 0, img.width, img.height);
 
-    let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    let pixels = imageData.data;
+    if (!isGrayscale) {
+        let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let pixels = imageData.data;
 
-    for (let i = 0; i < pixels.length; i += 4) {
-        let avg = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
-        pixels[i] = avg;
-        pixels[i + 1] = avg;
-        pixels[i + 2] = avg;
+        for (let i = 0; i < pixels.length; i += 4) {
+            let avg = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
+            pixels[i] = avg;
+            pixels[i + 1] = avg;
+            pixels[i + 2] = avg;
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+        button.textContent = "🌈 Màu sắc";
+    } else {
+        displayImage(document.getElementById("imageInput").files[0]); // Khôi phục ảnh gốc
+        button.textContent = "⚫ Trắng đen";
     }
 
-    ctx.putImageData(imageData, 0, 0);
-    croppedImageData = canvas.toDataURL();
-    img.src = croppedImageData;
+    img.src = canvas.toDataURL();
+    isGrayscale = !isGrayscale;
 }
+
+
 
 // 👉 Predict ảnh sau khi đã crop hoặc grayscale
 function predictImage() {
