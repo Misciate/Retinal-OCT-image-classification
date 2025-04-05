@@ -9,7 +9,7 @@ app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
 
 # Load model
-model = tf.keras.models.load_model(r"C:\DSA-Project\TEST11\retinal_oct_model.h5")
+model = tf.keras.models.load_model(r"./retinal_oct_model.h5")
 print(model.summary())
 print(model.input_shape)
 # Define the preprocess_image function
